@@ -5,7 +5,7 @@ DOT Indonesia memiliki guideline sekaligus standarisasi dalam pembuatan RESTful 
 ## Overview
 ## Request Format
 ## Response Format
-This section describe the structure of a JSON:API document for response format. A JSON object MUST be at the root of every JSON:API response containing data. This object defines a document’s “top level" and it's highly recommended to have same top-level structure in our API response. Not only for the successful response, but also the failed response.
+This section describe the structure of a JSON:API document for response format. A JSON object **MUST** be at the root of every JSON:API response containing data. This object defines a document’s “top level" and it's highly recommended to have same top-level structure in our API response. Not only for the successful response, but also the failed response.
 
 A document **MUST** contain at least one of the following top-level members:
 - `data` : the document's "primary data"
