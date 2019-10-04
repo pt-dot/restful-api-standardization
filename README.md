@@ -3,6 +3,37 @@
 DOT Indonesia memiliki guideline sekaligus standarisasi dalam pembuatan RESTful API.
 
 ## Overview
+## URL Design
+When determining an API’s URL structure, it is helpful to consider that all of its resources exist in a single “reference document” in which each resource is addressable at a unique path. Resources are grouped by type at the top level of this document. Individual resources are keyed by ID within these typed collections. Attributes and links within individual resources are uniquely addressable according to the resource object structure described above.
+
+The URL should contain resources (nouns), not actions or verbs. And the resource should always be plural in the API endpoint and if we want to access one instance of the resource, we can always pass the id in the URL.
+
+Here are the examples:
+- `/photos`
+- `/products`
+- `/categories`
+- etc.
+
+The following example is about breaking down a resource according to the HTTP verbs:
+- GET `/photos`, should get the list of all photos
+- GET `/photos/1`, should get the detail of photos with ID `1`
+- POST `/photos`, should store single photo resource
+- PUT `/photos/1`, should update detail of photos with ID `1`
+- DELETE `/photos/1`, should delete photo with ID `1`
+
+### Related Resource URL
+It is recommended that a related resource URL be formed by appending the name of the relationship to the resource’s URL.
+
+For example, the URL for product's `variants` would be:
+```
+/products/1/variants
+```
+
+And thr URL for a product's `images` would be:
+```
+/products/1/images
+```
+
 ## Request Format
 ## Response Format
 This section describe the structure of a JSON:API document for response format. A JSON object **MUST** be at the root of every JSON:API response containing data. This object defines a document’s “top level".
