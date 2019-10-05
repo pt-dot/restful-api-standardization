@@ -99,15 +99,19 @@ The following example is format usually used for failed response with status cod
 }
 ```
 
-For returning multiple validation problems, here's the example:
+For returning multiple validation problems, it **MUST** return error messages inside an array. Inside the `errors` array **MUST** contain the following element:
+- `key` : taken from request body's property that doesn't pass the validation
+- `value`: is the validation error message
+
+Here's the example for multiple validation problems:
 ```
 {
     "success": false,
     "error-code": null, /* or optional error payload, eg: 3001, 3002, etc. */
     "errors": [
-        "The email must be a valid email",
-        "The password must be at least 6 chaarcters",
-        "The phone number is already used"
+        "email": "The email must be a valid email",
+        "password": "The password must be at least 6 chaarcters",
+        "phone": "The phone number is already used"
     ],
     "message": "Error xyz has occurred"
 }
