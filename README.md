@@ -118,6 +118,51 @@ Here's the example for multiple validation problems:
 ```
 
 ## HTTP Response Code
+Http response status code indicate whether a specific HTTP request hasbeen successfully completed. There are 3 types of response code usually used:
+- Successful response (`2xx`)
+- Client errors (`4xx`)
+- Server errors (`5xx`)
+
+### Successful Responses (`2xx`)
+**200 OK**
+
+The request has succeeded. The meaning of the success depends on the HTTP method:
+- `GET`: The resource has been fetched and is transmitted in the message body.
+- `PUT or POST`: The resource describing the result of the action is transmitted in the message body.
+
+**201 Created**
+
+The request has succeeded and a new resource has been created as a result. This is typically the response sent after `POST` requests, or some `PUT` requests.
+
+### Client Error Responses (`4xx`)
+**400 Bad Request**
+
+The server could not understand the request due to invalid syntax.
+
+**401 Unauthorized**
+
+Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+
+**404 Not Found**
+
+The server couldn't find requested resource. This can be the URL / endpoint or the data that client looking for is not exists.
+
+**405 Method Not Allowed**
+
+The request method is known by the server, but has been disabled and cannot be used. For example:
+> An endpoint `/users/1` must be requested using `GET` HTTP verb, but we access it using `POST` HTTP verb.
+
+According to the case above, the server will return a response with the `405` status code.
+
+### Server Error Response (`5xx`)
+**500 Internal Server Error**
+
+This means that the server has encountered a situation it doesn't know how to handle. For example when a failure occurred in deleting data.
+
+**502 Bad Gateway**
+
+This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response. Or in short, when our server is down.
+
 ## Error Code
 ## Panduan Kontribusi
 
