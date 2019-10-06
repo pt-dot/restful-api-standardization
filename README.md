@@ -118,7 +118,7 @@ Here's the example for multiple validation problems:
 ```
 
 ## HTTP Response Code
-Http response status code indicate whether a specific HTTP request hasbeen successfully completed. There are 3 types of response code usually used:
+HTTP response status code indicate whether a specific HTTP request hasbeen successfully completed. There are 3 types of response code usually used:
 - Successful response (`2xx`)
 - Client errors (`4xx`)
 - Server errors (`5xx`)
