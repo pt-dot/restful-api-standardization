@@ -103,16 +103,30 @@ For returning multiple validation problems, it **MUST** return error messages in
 - `key` : taken from request body's property that doesn't pass the validation
 - `value`: is the validation error message
 
-Here's the example for multiple validation problems:
+Here's the example for multiple validation problems only contains value of error:
 ```
 {
     "success": false,
     "error-code": null, /* or optional error payload, eg: 3001, 3002, etc. */
     "errors": [
+        "The email must be a valid email",
+        "The password must be at least 6 chaarcters",
+        "The phone number is already used"
+    ],
+    "message": "Error xyz has occurred"
+}
+```
+
+Here's the example for multiple validation problems contains field and value of error:
+```
+{
+    "success": false,
+    "error-code": null, /* or optional error payload, eg: 3001, 3002, etc. */
+    "errors": {
         "email": "The email must be a valid email",
         "password": "The password must be at least 6 chaarcters",
         "phone": "The phone number is already used"
-    ],
+    },
     "message": "Error xyz has occurred"
 }
 ```
